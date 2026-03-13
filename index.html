@@ -3,165 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOPAK PRO | PREMIUM STORE</title>
+    <title>TOPAK PRO | ELITE STORE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Poppins:wght@300;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@700&display=swap');
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background: #000;
             color: #fff;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
             overflow-x: hidden;
-            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* کهکشاني متحرک شالید */
-        .space-bg {
+        /* د بګراونډ ژوندی حرکت */
+        #bg-canvas {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, #110000 0%, #000 100%);
-            z-index: -2;
-        }
-
-        .stars {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/stardust.png');
             z-index: -1;
-            animation: spaceMove 60s linear infinite;
-            opacity: 0.4;
+            background: radial-gradient(circle at center, #1a0000 0%, #000 100%);
         }
 
-        @keyframes spaceMove {
-            from { background-position: 0 0; }
-            to { background-position: 1000px 1000px; }
+        .lang-container { margin-top: 25px; position: relative; z-index: 100; }
+        .lang-main-btn {
+            background: rgba(255, 0, 0, 0.2);
+            border: 3px solid #ff0000;
+            color: #fff;
+            padding: 12px 35px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            box-shadow: 0 0 15px #ff0000;
         }
 
-        .header { padding: 50px 20px; }
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: 65px; left: 50%; transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #ff0000;
+            border-radius: 15px;
+            padding: 10px;
+            min-width: 160px;
+        }
+        .lang-dropdown.show { display: block; animation: slideIn 0.3s ease; }
+
+        .header { padding: 40px 20px; text-align: center; }
         .header h1 {
             font-family: 'Orbitron', sans-serif;
+            font-size: clamp(45px, 15vw, 70px);
+            font-weight: 900;
             color: #ff0000;
-            font-size: clamp(35px, 8vw, 50px);
-            letter-spacing: 10px;
-            text-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+            text-shadow: 0 0 40px rgba(255, 0, 0, 1);
             margin-bottom: 5px;
-            text-transform: uppercase;
         }
-        .header p { color: #fff; font-size: 14px; letter-spacing: 6px; opacity: 0.6; text-transform: uppercase; }
+        .header p {
+            font-size: 14px;
+            letter-spacing: 5px;
+            color: #00ff66;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px #00ff66;
+        }
 
-        .container { max-width: 420px; margin: auto; padding: 10px; }
+        .container { max-width: 460px; width: 100%; padding: 15px; z-index: 10; }
 
         .card {
-            background: rgba(15, 15, 15, 0.7);
+            background: rgba(20, 20, 20, 0.7);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 30px 20px;
+            border-radius: 35px;
+            padding: 40px 25px;
             margin-bottom: 30px;
-            transition: 0.4s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: 0.5s;
         }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 0, 0, 0.4);
-            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.1);
-        }
-
-        .card h2 { font-family: 'Orbitron', sans-serif; font-size: 24px; margin-bottom: 10px; letter-spacing: 1px; }
-        .card .versions { color: #888; font-size: 13px; margin-bottom: 15px; letter-spacing: 2px; font-weight: bold; }
-        .card .safe-tag { 
-            color: #00ff00; 
-            font-size: 13px; 
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .card:hover { border-color: #ff0000; transform: scale(1.03); }
 
         .btn {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 15px;
-            text-transform: uppercase;
-            transition: 0.3s;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            width: 100%; padding: 20px; border-radius: 20px;
+            text-decoration: none; font-weight: 900;
+            text-transform: uppercase; font-size: 16px; transition: 0.3s;
+        }
+        .btn-red { background: #ff0000; color: #fff; box-shadow: 0 10px 25px rgba(255, 0, 0, 0.5); }
+        .btn-green { background: #00ff66; color: #000; box-shadow: 0 10px 25px rgba(0, 255, 102, 0.4); }
+
+        .version-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+        .btn-ver {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #fff; padding: 16px; border-radius: 15px;
+            text-decoration: none; font-size: 14px; font-weight: 900;
         }
 
-        .btn-buy { background: #ff0000; color: #fff; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3); }
-        .btn-buy:hover { background: #fff; color: #000; transform: scale(1.02); }
-
-        .btn-price { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #fff; }
-        .btn-price:hover { background: rgba(255, 255, 255, 0.15); }
-
-        .telegram-btn {
-            display: inline-block;
-            margin-top: 20px;
-            background: #24A1DE;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(36, 161, 222, 0.3);
+        .telegram-card {
+            background: linear-gradient(135deg, #0088cc, #00c2ff);
+            border-radius: 30px; padding: 25px; margin-top: 30px;
+            text-decoration: none; display: flex; align-items: center;
+            justify-content: space-between; color: #fff;
+            box-shadow: 0 15px 35px rgba(0, 136, 204, 0.5);
         }
 
-        .telegram-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px #24A1DE; }
+        .buy-now-fixed {
+            display: block; background: #fff; color: #000;
+            padding: 22px; border-radius: 60px; text-decoration: none;
+            font-weight: 900; margin: 35px 0; font-size: 22px; text-align: center;
+            box-shadow: 0 0 40px rgba(255,255,255,0.5);
+        }
 
+        footer { text-align: center; padding: 60px 20px; color: #888; font-size: 14px; font-weight: 900; }
     </style>
 </head>
 <body>
 
-    <div class="space-bg"></div>
-    <div class="stars"></div>
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="lang-container">
+        <button class="lang-main-btn" onclick="toggleLang()">LANGUAGE <i class="fas fa-chevron-down"></i></button>
+        <div class="lang-dropdown" id="langBox">
+            <button class="lang-opt" onclick="changeLang('en')">English</button>
+            <button class="lang-opt" onclick="changeLang('ar')">العربية</button>
+            <button class="lang-opt" onclick="changeLang('ps')">پښتو</button>
+            <button class="lang-opt" onclick="changeLang('zh')">中文</button>
+        </div>
+    </div>
 
     <div class="header">
-        <h1>TOPAK PRO</h1>
-        <p>PUBGM PREMIUM STORE</p>
+        <h1 id="title">TOPAK PRO</h1>
+        <p id="subtitle">ELITE MODDING SOLUTIONS</p>
     </div>
 
     <div class="container">
         
-        <div class="card" style="border-top: 4px solid #fff;">
-            <h2>KHAN LOADER 4.3</h2>
-            <div class="versions">GL | KR | VNG | TW</div>
-            <span class="safe-tag">✓ 100% SAFE MAIN ID</span>
-            <a href="https://t.me/TOPAK1V" class="btn btn-buy">BUY ACCESS</a>
-            <a href="https://t.me/TOPAK919/59" class="btn btn-price">PRICE LIST</a>
+        <div class="card">
+            <h2 style="font-family:'Orbitron'; margin-bottom:15px;"><i class="fas fa-shield-halved"></i> KHAN LOADER</h2>
+            <a href="https://t.me/TOPAK1CHEATS/5928" class="btn btn-red" id="khan-b"><i class="fas fa-fire"></i> VIEW DETAILS</a>
         </div>
 
-        <div class="card" style="border-top: 4px solid #00ff00;">
-            <h2 style="color: #00ff00;">FURY LOADER 4.3</h2>
-            <div class="versions">GL | KR | VNG | TW</div>
-            <span class="safe-tag">✓ 100% SAFE MAIN ID</span>
-            <a href="https://t.me/TOPAK1V" class="btn btn-buy" style="background: #00ff00; color: #000;">BUY ACCESS</a>
-            <a href="https://t.me/TOPAK919/59" class="btn btn-price">PRICE LIST</a>
+        <div class="card">
+            <h2 style="color: #00ff66; font-family:'Orbitron'; margin-bottom:15px;"><i class="fas fa-bolt-lightning"></i> FURY LOADER</h2>
+            <a href="https://t.me/TOPAK1CHEATS/5925" class="btn btn-green" id="fury-b"><i class="fas fa-fire"></i> VIEW DETAILS</a>
         </div>
 
-        <div class="card" style="border-top: 4px solid #ff0000;">
-            <h2 style="color: #ff0000;">ALI PRO MOD 4.3</h2>
-            <div class="versions">GL | KR | VNG | TW</div>
-            <span class="safe-tag">✓ 100% SAFE MAIN ID</span>
-            <a href="https://t.me/TOPAK1V" class="btn btn-buy">BUY ACCESS</a>
-            <a href="https://t.me/TOPAK919/59" class="btn btn-price">PRICE LIST</a>
+        <div class="card">
+            <h2 style="color: #ff0000; font-family:'Orbitron'; margin-bottom:15px;"><i class="fas fa-microchip"></i> ALI PRO MOD</h2>
+            <div class="version-grid">
+                <a href="https://t.me/TOPAK1CHEATS/5932?single" class="btn-ver">GLOBAL</a>
+                <a href="https://t.me/TOPAK1CHEATS/5933?single" class="btn-ver">VIETNAM</a>
+                <a href="https://t.me/TOPAK1CHEATS/5934?single" class="btn-ver">KOREA</a>
+                <a href="https://t.me/TOPAK1CHEATS/5935?single" class="btn-ver">TAIWAN</a>
+            </div>
         </div>
 
-        <a href="https://t.me/TOPAK3CHEATS" class="telegram-btn">JOIN TELEGRAM CHANNEL</a>
+        <a href="https://t.me/spark_xt" class="telegram-card">
+            <div>
+                <p style="font-size: 14px; font-weight: 900; opacity: 0.9;">OFFICIAL CHANNEL</p>
+                <h3 id="tg-join" style="font-size: 24px; font-family: 'Orbitron';">JOIN TELEGRAM</h3>
+            </div>
+            <i class="fab fa-telegram fa-4x"></i>
+        </a>
+
+        <a href="https://t.me/TOPAK1V" class="buy-now-fixed" id="buy-b">BUY ACCESS NOW</a>
 
     </div>
 
-    <footer style="margin: 60px 0; color: #444; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;">
-        © 2026 TOPAK STORE OFFICIAL
+    <footer>
+        © 2026 TOPAK STORE • ALL RIGHTS RESERVED
     </footer>
 
+    <script>
+        // د بګراونډ د ذراتو کوډ
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function createParticles() {
+            for (let i = 0; i < 100; i++) particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', initCanvas);
+        initCanvas(); createParticles(); animate();
+
+        // ژبه
+        function toggleLang() { document.getElementById('langBox').classList.toggle('show'); }
+        const langData = {
+            en: { title: "TOPAK PRO", sub: "ELITE MODDING SOLUTIONS", khanB: "VIEW DETAILS", furyB: "VIEW DETAILS", buyB: "BUY ACCESS NOW", join: "JOIN TELEGRAM" },
+            ps: { title: "ټوپک پرو", sub: "د هیکونو ځانګړی مرکز", khanB: "معلومات وګورئ", furyB: "معلومات وګورئ", buyB: "اوس یې واخلئ", join: "چینل ته ورشئ" },
+            ar: { title: "توباك برو", sub: "حلول التعديل النخبوية", khanB: "عرض التفاصيل", furyB: "عرض التفاصيل", buyB: "شراء الآن", join: "انضم إلينا" },
+            zh: { title: "TOPAK 商店", sub: "顶级修改方案", khanB: "查看详情", furyB: "查看详情", buyB: "立即购买", join: "加入电报" }
+        };
+
+        function changeLang(l) {
+            document.getElementById('title').innerText = langData[l].title;
+            document.getElementById('subtitle').innerText = langData[l].sub;
+            document.getElementById('khan-b').innerHTML = `<i class="fas fa-fire"></i> ` + langData[l].khanB;
+            document.getElementById('fury-b').innerHTML = `<i class="fas fa-fire"></i> ` + langData[l].furyB;
+            document.getElementById('buy-b').innerText = langData[l].buyB;
+            document.getElementById('tg-join').innerText = langData[l].join;
+            document.body.dir = (l === 'ps' || l === 'ar') ? 'rtl' : 'ltr';
+            document.getElementById('langBox').classList.remove('show');
+        }
+    </script>
 </body>
 </html>
+
