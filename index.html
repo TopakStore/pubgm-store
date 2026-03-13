@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOPAK PRO | PREMIUM STORE</title>
     <style>
-        /* شالید او خوځنده رڼاګانې */
         body {
             background: #000;
             color: #fff;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
             margin: 0;
             padding: 20px;
@@ -17,7 +16,6 @@
             position: relative;
         }
 
-        /* د شالید ډیزاین (Moving Background) */
         body::before {
             content: "";
             position: fixed;
@@ -28,7 +26,6 @@
             z-index: -1;
         }
 
-        /* متحرک ستوري/ذرات */
         .bg-animate {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -44,83 +41,78 @@
 
         .header h1 {
             color: #ff0000;
-            font-size: 55px;
+            font-size: 50px;
             margin-bottom: 0;
             text-transform: uppercase;
             font-weight: 900;
-            letter-spacing: 6px;
+            letter-spacing: 5px;
             text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
         }
 
         .header p {
             color: #fff;
-            font-size: 16px;
-            letter-spacing: 6px;
+            font-size: 14px;
+            letter-spacing: 5px;
             margin-top: 5px;
             font-weight: bold;
-            background: rgba(255, 0, 0, 0.2);
+            background: rgba(255, 0, 0, 0.3);
             display: inline-block;
-            padding: 5px 20px;
+            padding: 5px 15px;
             border-radius: 50px;
         }
 
-        hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, red, transparent); margin: 40px 0; }
+        hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, red, transparent); margin: 30px 0; }
 
         .container { max-width: 400px; margin: auto; }
 
-        /* VIP کارتونه */
         .card {
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(15px);
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 30px 20px;
-            margin-bottom: 35px;
+            border-radius: 25px;
+            padding: 25px 20px;
+            margin-bottom: 30px;
             transition: 0.4s;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255, 255, 255, 0.4);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
-        }
+        .card h2 { font-size: 28px; margin: 0; font-weight: 800; text-transform: uppercase; }
+        .card .version { color: #999; font-size: 13px; margin: 10px 0; letter-spacing: 2px; }
+        .card .safe { color: #00ff00; font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 20px; }
 
-        .card h2 { font-size: 30px; margin: 0; font-weight: 800; }
-        .card .version { color: #aaa; font-size: 14px; margin: 10px 0; letter-spacing: 2px; }
-        .card .safe { 
-            color: #00ff00; 
-            font-weight: bold; 
-            font-size: 1.2rem; 
-            display: block; 
-            margin-bottom: 25px;
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        }
-
-        /* تڼۍ */
         .btn {
             display: block;
             width: 100%;
-            padding: 16px;
-            border-radius: 15px;
+            padding: 15px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             box-sizing: border-box;
-            font-size: 16px;
+            font-size: 15px;
             transition: 0.3s;
             text-transform: uppercase;
         }
 
-        .btn-white { background: #fff; color: #000; box-shadow: 0 0 15px rgba(255,255,255,0.3); }
-        .btn-green { background: #00ff00; color: #000; box-shadow: 0 0 15px rgba(0, 255, 0, 0.3); }
-        .btn-red { background: #ff0000; color: #fff; box-shadow: 0 0 15px rgba(255, 0, 0, 0.3); }
-        
-        .btn-outline { 
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
+        .btn-white { background: #fff; color: #000; }
+        .btn-green { background: #00ff00; color: #000; }
+        .btn-red { background: #ff0000; color: #fff; }
+        .btn-outline { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+
+        /* ستا د چینل لپاره شنه تڼۍ په پای کې */
+        .channel-btn {
+            display: inline-block;
+            background: #24A1DE;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            box-shadow: 0 0 15px rgba(36, 161, 222, 0.4);
+            transition: 0.3s;
         }
+        .channel-btn:hover { transform: scale(1.1); background: #1c82b3; }
 
     </style>
 </head>
@@ -141,30 +133,32 @@
             <h2>KHAN LOADER 4.3</h2>
             <div class="version">GL | KR | VNG | TW</div>
             <span class="safe">✓ FULL SAFE</span>
-            <a href="#" class="btn btn-white">BUY NOW</a>
-            <a href="#" class="btn btn-outline">PRICE LIST</a>
+            <a href="https://t.me/TOPAK1V" class="btn btn-white">BUY NOW</a>
+            <a href="https://t.me/TOPAK919/59" class="btn btn-outline">PRICE LIST</a>
         </div>
 
         <div class="card" style="border-top: 4px solid #00ff00;">
             <h2 style="color: #00ff00;">FURY LOADER 4.3</h2>
             <div class="version">GL | KR | VNG | TW</div>
             <span class="safe">✓ FULL SAFE</span>
-            <a href="#" class="btn btn-green">BUY NOW</a>
-            <a href="#" class="btn btn-outline">PRICE LIST</a>
+            <a href="https://t.me/TOPAK1V" class="btn btn-green">BUY NOW</a>
+            <a href="https://t.me/TOPAK919/59" class="btn btn-outline">PRICE LIST</a>
         </div>
 
         <div class="card" style="border-top: 4px solid #ff0000;">
             <h2 style="color: #ff0000;">ALI PRO MOD 4.3</h2>
             <div class="version">GL | KR | VNG | TW</div>
             <span class="safe">✓ FULL SAFE</span>
-            <a href="#" class="btn btn-red">BUY NOW</a>
-            <a href="#" class="btn btn-outline">PRICE LIST</a>
+            <a href="https://t.me/TOPAK1V" class="btn btn-red">BUY NOW</a>
+            <a href="https://t.me/TOPAK919/59" class="btn btn-outline">PRICE LIST</a>
         </div>
+
+        <a href="https://t.me/TOPAK3CHEATS" class="channel-btn">JOIN TELEGRAM CHANNEL</a>
 
     </div>
 
-    <footer style="color: #666; font-size: 12px; margin: 40px 0;">
-        © 2026 TOPAK PRO | ALL RIGHTS RESERVED
+    <footer style="color: #555; font-size: 11px; margin: 40px 0; letter-spacing: 2px;">
+        © 2026 TOPAK STORE OFFICIAL
     </footer>
 
 </body>
